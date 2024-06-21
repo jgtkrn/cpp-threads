@@ -21,14 +21,14 @@ void odd_counter(ull start, ull end){
 
 int main(){
 	ull start = 0;
-	ull end = 1900000000;
+	ull end = 190000000;
 	auto start_time = std::chrono::high_resolution_clock::now();
 	std::thread t1([start, end] {even_counter(start, end);});
 	std::thread t2([start, end] {odd_counter(start, end);});
 	t1.join();
 	t2.join();
-	// even_counter(start, end);
-	// odd_counter(start, end);
+//	even_counter(start, end);
+//	odd_counter(start, end);
 	auto stop_time = std::chrono::high_resolution_clock::now();
 	auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop_time - start_time);
 	std::cout << "----Even and Odd Summary----\n";
@@ -36,7 +36,7 @@ int main(){
 	std::cout << "--End: " << end << std::endl;
 	std::cout << "--Even Count: " << even_count << std::endl;
 	std::cout << "--Odd Count: " << odd_count << std::endl;
-	std::cout << "--Time Usage: " << duration.count()/1000000 << std::endl;
+	std::cout << "--Time Usage: " << duration.count()/1000 << std::endl;
 
 	return 0;
 }
