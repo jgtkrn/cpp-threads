@@ -13,7 +13,7 @@ void increment_val() {
 
 int main() {
 	std::vector<std::thread> threads;
-	int len = 1500;
+	int len = 100000;
 	for(int i = 0; i < len; i++){
 		threads.push_back(std::thread(increment_val));
 	}
